@@ -1,0 +1,43 @@
+{
+  "name": "alignersfarm-desktop",
+  "productName": "AlignersFarm",
+  "version": "1.0.0",
+  "description": "AlignersFarm portal for Windows",
+  "author": "AlignersFarm",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never"
+  },
+  "dependencies": {
+    "electron-updater": "6.3.9"
+  },
+  "devDependencies": {
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "com.alignerfarm.portal",
+    "productName": "AlignersFarm",
+    "copyright": "AlignersFarm",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "icon.png"],
+    "publish": [{ "provider": "github", "owner": "Neke147", "repo": "alignersfarm-desktop", "releaseType": "release" }],
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AlignersFarm",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "artifactName": "AlignersFarm-Setup.${ext}"
+    }
+  }
+}
