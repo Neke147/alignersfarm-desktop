@@ -1,0 +1,24 @@
+# Ndërton instaluesin e Windows dhe e publikon si «Release» (lidhja e shkarkimit + përditësimet e programit).
+# Për një version të ri: ndrysho "version" te package.json (p.sh. 1.0.1) – ndërtimi nis vetë.
+name: Release Windows app
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['package.json', 'main.js', 'icon.*', '.github/workflows/release.yml']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install
+        run: npm install --no-audit --no-fund
+      - name: Build and publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx electron-builder --win --publish always
