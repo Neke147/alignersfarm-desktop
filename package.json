@@ -1,7 +1,7 @@
 {
   "name": "alignersfarm-desktop",
   "productName": "AlignersFarm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AlignersFarm portal for Windows",
   "author": "AlignersFarm",
   "main": "main.js",

@@ -7,6 +7,9 @@ const PORTAL = 'https://portal.alignerfarm.com';
 const inPortal = (u) => { try { return new URL(u).origin === PORTAL; } catch { return false; } };
 const isFile = (u) => { try { return /\.supabase\.co$/.test(new URL(u).hostname); } catch { return false; } };
 
+// emri i aplikacionit për njoftimet e Windows (përditësimet e portalit dalin si njoftim i sistemit)
+if (process.platform === 'win32') app.setAppUserModelId('com.alignerfarm.portal');
+
 let win = null;
 let manual = false;          // kontroll i nisur nga përdoruesi (tregon edhe «s'ka përditësim»)
 if (!app.requestSingleInstanceLock()) app.quit();
