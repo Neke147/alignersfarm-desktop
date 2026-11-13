@@ -1,7 +1,7 @@
 {
   "name": "alignersfarm-desktop",
   "productName": "AlignersFarm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AlignersFarm portal for Windows",
   "author": "AlignersFarm",
   "main": "main.js",
@@ -22,7 +22,7 @@
     "productName": "AlignersFarm",
     "copyright": "AlignersFarm",
     "directories": { "output": "dist" },
-    "files": ["main.js", "icon.png"],
+    "files": ["main.js", "preload.js", "icon.png"],
     "publish": [{ "provider": "github", "owner": "Neke147", "repo": "alignersfarm-desktop", "releaseType": "release" }],
     "win": {
       "target": [{ "target": "nsis", "arch": ["x64"] }],
